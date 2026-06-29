@@ -1,36 +1,85 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tic-Tac-Toe Game</title>
+    <title>Tic-Tac-Toe · Animated</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    
-    <div class="msg-container hide">
-      <p id="msg"><b>Winner</b></p>
-      <button id="new-btn">New Game</button>
-    </div>
-    <main>
-      <h1><b>Tic Tac Toe</b></h1>
-      <div class="container">
-        <div class="game">
-          <button class="box"></button>
-          <button class="box"></button>
-          <button class="box"></button>
-          <button class="box"></button>
-          <button class="box"></button>
-          <button class="box"></button>
-          <button class="box"></button>
-          <button class="box"></button>
-          <button class="box"></button>
+</head>
+<body>
+
+    <!-- ===== BACKGROUND ANIMATION ===== -->
+    <div class="bg-animation" id="bgAnimation"></div>
+
+    <!-- ===== CONFETTI LAYER ===== -->
+    <div class="confetti-layer" id="confettiLayer"></div>
+
+    <!-- ===== WIN / DRAW OVERLAY ===== -->
+    <div class="overlay" id="overlay">
+        <div class="overlay-card">
+            <div class="overlay-icon" id="overlayIcon">🏆</div>
+            <p class="overlay-title" id="overlayTitle">🎉 <span class="highlight-x">X</span> Wins!</p>
+            <p class="overlay-sub" id="overlaySub">Amazing play!</p>
+            <div class="overlay-btns">
+                <button class="btn btn-primary" id="newBtn">🔄 New Game</button>
+                <button class="btn btn-secondary" id="resetOverlayBtn">⟳ Reset</button>
+            </div>
         </div>
-      </div>
-      <button id="reset-btn">Reset Game</button>
-    </main>
+    </div>
+
+    <!-- ===== MAIN GAME ===== -->
+    <div class="wrapper">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="title">✦ Tic Tac Toe ✦</h1>
+            <div class="turn-indicator" id="turnIndicator">
+                <span class="turn-dot" id="turnDot"></span>
+                <span class="turn-label" id="turnLabel">O's turn</span>
+            </div>
+        </div>
+
+        <!-- Score Board -->
+        <div class="scoreboard">
+            <div class="score-item score-x">
+                <span class="score-label">X</span>
+                <span class="score-value" id="scoreX">0</span>
+            </div>
+            <div class="score-divider">·</div>
+            <div class="score-item score-draw">
+                <span class="score-label">Draw</span>
+                <span class="score-value" id="scoreDraw">0</span>
+            </div>
+            <div class="score-divider">·</div>
+            <div class="score-item score-o">
+                <span class="score-label">O</span>
+                <span class="score-value" id="scoreO">0</span>
+            </div>
+        </div>
+
+        <!-- Board -->
+        <div class="board">
+            <div class="board-glow"></div>
+            <div class="game" id="gameBoard">
+                <button class="cell" data-index="0"></button>
+                <button class="cell" data-index="1"></button>
+                <button class="cell" data-index="2"></button>
+                <button class="cell" data-index="3"></button>
+                <button class="cell" data-index="4"></button>
+                <button class="cell" data-index="5"></button>
+                <button class="cell" data-index="6"></button>
+                <button class="cell" data-index="7"></button>
+                <button class="cell" data-index="8"></button>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="btn btn-secondary" id="resetBtn">⟳ Reset Game</button>
+            <button class="btn btn-ghost" id="clearScoreBtn">🗑 Clear Scores</button>
+        </div>
+    </div>
+
     <script src="app.js"></script>
-  </body>
-
-
+</body>
 </html>
